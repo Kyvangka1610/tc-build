@@ -142,7 +142,7 @@ def parse_parameters(root_folder):
 
                         """),
                         type=str,
-                        default="ClangBuiltLinux")
+                        default="SixTeen™")
     parser.add_argument("-D",
                         "--defines",
                         help=textwrap.dedent("""\
@@ -388,7 +388,7 @@ def versioned_binaries(binary_name):
     tot_llvm_ver = 11
     try:
         response = request.urlopen(
-            'https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/CMakeLists.txt'
+            'https://raw.githubusercontent.com/kyvangka1610/llvm-project/main/llvm/CMakeLists.txt'
         )
         to_parse = None
         data = response.readlines()
@@ -597,7 +597,7 @@ def fetch_llvm_binutils(root_folder, update, shallow, ref):
                 extra_args += ("--no-single-branch", )
         subprocess.run([
             "git", "clone", *extra_args,
-            "https://github.com/llvm/llvm-project",
+            "https://github.com/kyvangka1610/llvm-project",
             p.as_posix()
         ],
                        check=True)
